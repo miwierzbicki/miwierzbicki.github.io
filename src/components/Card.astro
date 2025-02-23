@@ -14,7 +14,7 @@ const { title, content, technologies } = Astro.props;
         <p>{content}</p>
         <div class="tech-tags">
             {technologies.map(tech => (
-                <span class="terminal-badge">{tech}</span>
+                <span class="btn btn-default btn-ghost">{tech}</span>
             ))}
         </div>
     </div>
@@ -49,10 +49,21 @@ const { title, content, technologies } = Astro.props;
         gap: 0.3rem;
     }
 
+    .btn { 
+        font-size: 0.7rem;
+        padding: 0.4rem;
+        min-width: 30px;
+    }
+
+    .btn:hover { 
+        cursor: auto;
+    }
+
     .terminal-badge {
         padding: 0.1rem 0.3rem;
-        background-color: #1a95e0;
-        border-radius: 3px;
+        background-color: var(--primary-color);
+        color: #222225;
+        /* border-radius: 3px; */
         font-size: 0.7rem;
     }
 </style>
