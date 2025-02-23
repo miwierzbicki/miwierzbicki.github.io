@@ -1,2 +1,2 @@
-# mw.github.io
+# miwierzbicki.github.io
 
