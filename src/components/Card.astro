@@ -3,11 +3,12 @@ interface Props {
     title: string;
     content: string;
     technologies: string[];
+    href: string;
 }
 
-const { title, content, technologies } = Astro.props;
+const { title, content, technologies, href } = Astro.props;
 ---
-
+<a href={href} class="card-link">
 <div class="terminal-card">
     <header>{title}</header>
     <div class="card-content">
@@ -20,8 +21,30 @@ const { title, content, technologies } = Astro.props;
         
     </div>
 </div>
-
+</a>
 <style>
+    .card-link {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.3s ease;
+    }
+
+    .card-link:hover {
+        transform: translateY(5px);
+    }
+    
+    /* Możesz też dodać dodatkowe efekty, jak cień */
+    .terminal-card {
+        transition: box-shadow 0.3s ease;
+    }
+    
+   
+
+    .card-link:hover { 
+        background-color: inherit;
+    }
+
     #link-btn { 
         margin-top: auto; /* Przesuwa tagi na dół */
         display: flex;
