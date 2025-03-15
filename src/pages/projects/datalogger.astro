@@ -36,7 +36,7 @@ import { Code } from "astro:components";
         <h2>PCB design:</h2>
         <figure>
             <img
-                src="https://raw.githubusercontent.com/miwierzbicki/stm_datalogger/dev/1.png"
+                src="/imgs/PCB.png"
                 height="400px"
                 alt="PCB design made in EAGLE"
             />
@@ -45,7 +45,7 @@ import { Code } from "astro:components";
         <h2>Finished and soldered datalogger:</h2>
         <figure>
             <img
-                src="https://raw.githubusercontent.com/miwierzbicki/stm_datalogger/dev/2.png"
+                src="/imgs/PCB_soldered.jpg"
                 height="400px"
                 alt="Finished board"
             />
@@ -64,7 +64,7 @@ import { Code } from "astro:components";
         <h2>User interface diagram:</h2>
         <figure>
             <img
-                src="https://raw.githubusercontent.com/miwierzbicki/stm_datalogger/dev/3.png"
+                src="/imgs/UI_schema.jpg"
                 height="400px"
                 alt="Diagram of interface screens"
             />
@@ -74,7 +74,7 @@ import { Code } from "astro:components";
         <h2>Passing through the interface screens:</h2>
         <figure>
             <img
-                src="https://raw.githubusercontent.com/miwierzbicki/stm_datalogger/dev/4.png"
+                src="/imgs/Menu_options.jpg"
                 height="300px"
                 alt="Cycle between 4 screens"
             />
@@ -105,6 +105,15 @@ import { Code } from "astro:components";
             <h2>Measurements:</h2>
             <ul>
                 <li>ADC linearity measurements</li>
+                <img
+                src="/imgs/ADC_measure.jpg"
+                height="300px"
+                alt="Graph of the voltage measurement of the transmitter against the reference instrument."
+            />
+            <figcaption>Graph of the voltage measurement of the transmitter against the reference instrument.</figcaption>
+                <p>The characteristics of the reference instrument coincide with those of the transducer under test. The gain error can be defined as the ratio of the slope of the characteristics of the transducer under test, to the characteristics of the reference instrument.  The readings from the approximation of the slope of the characteristics are, respectively: -0.09 and -0.1, resulting in a calculated gain error of the transducer equal to 0.9. The transducer maintains linearity over the entire measurement range. 
+
+                    </p>
                 <li>Gain error measurement</li>
                 <li>Measurement of operating time under typical use</li>
             </ul>
