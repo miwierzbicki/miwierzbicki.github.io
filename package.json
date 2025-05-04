@@ -1,7 +1,7 @@
 {
   "name": "mw",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.2.1",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -9,7 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.3.0",
+    "astro": "^5.7.10",
     "terminal.css": "^0.7.5"
   }
 }

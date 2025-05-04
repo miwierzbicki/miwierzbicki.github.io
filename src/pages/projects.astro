@@ -5,73 +5,72 @@ import Card from "../components/Card.astro";
 ---
 
 <DefaultLayout>
-    <div class="projects-container">
-        <h1>~/projects</h1>
-        <div class="cards-grid">
-            <Card
-                title="Custom offer generator"
-                content="I developed a custom Node.js and Vue.js application that automated commercial offer creation for internal use, allowing employees to input products, prices, and margins to generate finalized PDF offers. This solution significantly reduced processing time and improved efficiency."
-                technologies={["Node.js", "Vue", "MariaDB", "CI/CD"]}
-            />
-            <Card
-                title="miroslaw.me - Portfolio"
-                content="Simple portofolio website with terminal-style layout design, built with Astro and Terminal.css framework. Uses reusable components. SEO friendly and amazingly fast."
-                technologies={["Astro", "TypeScript", "Github Actions"]}
-            />
-            <Card
-                title="STM32 Datalogger"
-                content="A customizable, STM32-based data logger featuring temperature and voltage measurements, SD card storage, and an OLED user interface, with modular code for sensor management and user interaction."
-                technologies={["STM32", "C"]}
-                href="/projects/datalogger"
-            />
-            <Card
-                title="React-DrinkApp"
-                content="Application to select and display beverage recipes from the API resource. The project was created during a course at the Wrocław University of Technology. Data retrieved from API thecocktaildb.com"
-                technologies={["React", "Node", "Bootstrap"]}
-            />
-            <Card
-                title="QT-PlottingCalc"
-                content="A programme that allows the drawing of various graphs of mathematical functions and the calculation of simple mathematical relationships."
-                technologies={["C++", "Qt", "QCustomPlot"]}
-            />
-        </div>
+  <div class="projects-container">
+    <h1>~/projects</h1>
+    <div class="cards-grid">
+      <Card
+        title="Custom offer generator"
+        content="I developed a custom Node.js and Vue.js application that automated commercial offer creation for internal use, allowing employees to input products, prices, and margins to generate finalized PDF offers. This solution significantly reduced processing time and improved efficiency."
+        technologies={["Node.js", "Vue", "MariaDB", "CI/CD"]}
+      />
+      <Card
+        title="miroslaw.me - Portfolio"
+        content="Simple portofolio website with terminal-style layout design, built with Astro and Terminal.css framework. Uses reusable components. SEO friendly and amazingly fast."
+        technologies={["Astro", "TypeScript", "Github Actions"]}
+        href="/projects/portfolio"
+      />
+      <Card
+        title="STM32 Datalogger"
+        content="A customizable, STM32-based data logger featuring temperature and voltage measurements, SD card storage, and an OLED user interface, with modular code for sensor management and user interaction."
+        technologies={["STM32", "C"]}
+        href="/projects/datalogger"
+      />
+      <Card
+        title="React-DrinkApp"
+        content="Application to select and display beverage recipes from the API resource. The project was created during a course at the Wrocław University of Technology. Data retrieved from API thecocktaildb.com"
+        technologies={["React", "Node", "Bootstrap"]}
+      />
+      <Card
+        title="QT-PlottingCalc"
+        content="A programme that allows the drawing of various graphs of mathematical functions and the calculation of simple mathematical relationships."
+        technologies={["C++", "Qt", "QCustomPlot"]}
+      />
     </div>
+  </div>
 </DefaultLayout>
 
 <style>
-    .projects-container {
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 2rem;
-    }
+  .projects-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
 
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  @media (max-width: 900px) {
     .cards-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); /* Domyślnie 3 kolumny */
-        gap: 2rem; /* Odstęp między kartami */
-        margin-top: 2rem;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .cards-grid {
+      grid-template-columns: 1fr;
     }
 
-    h1 {
-        text-align: center;
+    .projects-container {
+      padding: 1rem;
     }
-
-    /* Na średnich ekranach - 2 kolumny */
-    @media (max-width: 900px) {
-        .cards-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    /* Na małych ekranach - 1 kolumna */
-    @media (max-width: 600px) {
-        .cards-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .projects-container {
-            padding: 1rem;
-        }
-    }
+  }
 </style>

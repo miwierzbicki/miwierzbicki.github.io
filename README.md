@@ -1,6 +1,6 @@
 # [miroslaw.me](https://miroslaw.me)
 
-Simple portfolio website built with [Astro](https://astro.build) and [Terminal.css](https://terminalcss.xyz) framework.
+Simple portfolio website built with [Astro](https://astro.build) and [Terminal.css](https://terminalcss.xyz) framework. Uses Markdown formatted files as article source. 
 
 ## 🚧 Status
 
