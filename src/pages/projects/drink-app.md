@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/MarkdownLayout.astro
-title: Custom offer generator
+title: drinkApp
 author: Mirosław Wierzbicki
 date: 2025-02-01 08:30
 status: finished ✅
