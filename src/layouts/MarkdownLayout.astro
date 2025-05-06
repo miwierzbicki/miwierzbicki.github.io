@@ -64,9 +64,14 @@ const { frontmatter } = Astro.props;
       <Navigation />
     </header>
     <div class="main-md">
-      <div class="meta-info">
-        <span>Autor: {frontmatter.author ?? "Mirosław Wierzbicki"}</span>
-        {frontmatter.date && <> | <span>Data wpisu: {frontmatter.date}</span></>}
+      <div class="meta-row">
+        <a href="/projects" class="back-arrow" aria-label="Powrót do listy projektów">
+          <span>&larr;</span> Go back
+        </a>
+        <div class="meta-info">
+          
+          {frontmatter.date && <> <span>Article date: {frontmatter.date}</span></>}
+        </div>
       </div>
       <h1>{frontmatter.title ?? "Bez tytułu"}</h1>
       {frontmatter.status && (

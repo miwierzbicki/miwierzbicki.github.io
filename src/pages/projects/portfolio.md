@@ -6,7 +6,7 @@ date: 2024-05-04 16:19
 status: in progress 🔧
 ---
 
-# [miroslaw.me](https://miroslaw.me)
+<!-- # [miroslaw.me](https://miroslaw.me) -->
 
 Simple portfolio website built with [Astro](https://astro.build) and [Terminal.css](https://terminalcss.xyz) framework.
 
