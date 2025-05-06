@@ -9,27 +9,28 @@ import Card from "../components/Card.astro";
     <h1>~/projects</h1>
     <div class="cards-grid">
       <Card
-        title="Custom offer generator"
-        content="I developed a custom Node.js and Vue.js application that automated commercial offer creation for internal use, allowing employees to input products, prices, and margins to generate finalized PDF offers. This solution significantly reduced processing time and improved efficiency."
-        technologies={["Node.js", "Vue", "MariaDB", "CI/CD"]}
-         href="/404"
-      />
-      <Card
-        title="miroslaw.me - Portfolio"
-        content="Simple portofolio website with terminal-style layout design, built with Astro and Terminal.css framework. Uses reusable components. SEO friendly and amazingly fast."
-        technologies={["Astro", "TypeScript", "Github Actions"]}
-        href="/projects/portfolio"
-      />
-      <Card
         title="STM32 Datalogger"
         content="A customizable, STM32-based data logger featuring temperature and voltage measurements, SD card storage, and an OLED user interface, with modular code for sensor management and user interaction."
-        technologies={["STM32", "C"]}
+        technologies={["Embedded","STM32", "C"]}
         href="/projects/datalogger"
       />
       <Card
+        title="Custom offer generator"
+        content="I developed a custom Node.js and Vue.js application that automated commercial offer creation for internal use, allowing employees to input products, prices, and margins to generate finalized PDF offers. This solution significantly reduced processing time and improved efficiency."
+        technologies={["Node.js", "Vue", "MariaDB", "CI/CD"]}
+         href="/projects/offer-generator"
+      />
+      <Card
+        title="miroslaw.me - Portfolio"
+        content="Simple portofolio website with terminal-style layout design, built with Astro and Terminal.css framework. Uses reusable components. SEO friendly and amazingly fast. Uses Markdown formatted files as article source."
+        technologies={["Astro", "TypeScript", "Github Actions"]}
+        href="/projects/portfolio"
+      />
+      
+      <Card
         title="React-DrinkApp"
         content="Application to select and display beverage recipes from the API resource. The project was created during a course at the Wrocław University of Technology. Data retrieved from API thecocktaildb.com"
-        technologies={["React", "Node", "Bootstrap"]}
+        technologies={["React", "Node.js", "Bootstrap"]}
         href="/404"
       />
       <Card

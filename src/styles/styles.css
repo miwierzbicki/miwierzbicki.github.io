@@ -81,6 +81,14 @@ footer a.footer-link:hover {
   background: #7fd6ff;
 }
 
+.status-btn-inside {
+  transition: background 0.15s, color 0.15s, filter 0.15s!important;
+}
+
+.status-btn-inside:hover {
+  background: #7fd6ff!important;
+}
+
 @media (max-width: 600px) {
   .nav-container {
     flex-direction: column;
@@ -155,4 +163,48 @@ pre {
   color: var(--secondary-color, #a3abba);
   font-size: 0.95em;
   text-align: right;
+}
+
+.status-alert-combined {
+  margin-bottom: 20px;
+}
+
+.terminal-alert { 
+  padding: 0 !important;
+  padding-left: 1rem!important;
+}
+
+.status-alert {
+  display: flex;
+  align-items: stretch; 
+  justify-content: space-between; 
+  padding: 0.75em 0 0.75em 1.5em;
+  border-radius: 0;
+  background: transparent;
+  color: var(--invert-font-color, #222225);
+  border: 2px solid var(--primary-color, #62c4ff);
+  flex: 1 1 auto;
+  min-width: 0;
+  position: relative;
+}
+
+.status-alert > span {
+  display: flex;
+  align-items: center;
+}
+
+.status-btn-inside {
+  border-radius: 0;
+  border: none;
+  border-left: 2px solid var(--primary-color, #62c4ff);
+  background: var(--primary-color, #62c4ff);
+  color: var(--invert-font-color, #222225);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5em !important;
+  height: 100%;
+  box-shadow: none;
+  transition: background 0.15s, color 0.15s;
+  margin-left: 0;
 }

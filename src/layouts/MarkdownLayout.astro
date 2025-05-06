@@ -65,20 +65,38 @@ const { frontmatter } = Astro.props;
     </header>
     <div class="main-md">
       <div class="meta-row">
-        <a href="/projects" class="back-arrow" aria-label="Powrót do listy projektów">
+        <a
+          href="/projects"
+          class="back-arrow"
+          aria-label="Powrót do listy projektów"
+        >
           <span>&larr;</span> Go back
         </a>
         <div class="meta-info">
-          
-          {frontmatter.date && <> <span>Article date: {frontmatter.date}</span></>}
+          {
+            frontmatter.date && (
+              <>
+                {" "}
+                <span>Article date: {frontmatter.date}</span>
+              </>
+            )
+          }
         </div>
       </div>
       <h1>{frontmatter.title ?? "Bez tytułu"}</h1>
-      {frontmatter.status && (
-        <div class="terminal-alert terminal-alert-primary" style="margin-bottom: 20px;">
-          Status: {frontmatter.status}
+      <div class="status-alert-combined">
+        <div class="terminal-alert terminal-alert-primary status-alert">
+          <span>Status: {frontmatter.status}</span>
+          <a
+            href={frontmatter.repo ?? "#"}
+            class="btn btn-primary status-btn-inside"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Check source code
+          </a>
         </div>
-      )}
+      </div>
       <slot />
     </div>
 

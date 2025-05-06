@@ -4,6 +4,7 @@ title: STM32 μSD Datalogger
 author: Mirosław Wierzbicki
 date: 2024-05-04 10:01
 status: finished ✅
+repo: https://github.com/miwierzbicki/stm_datalogger
 ---
 
 **Project Objective:**
