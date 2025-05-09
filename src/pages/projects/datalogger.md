@@ -63,26 +63,74 @@ The primary objective of this project was to develop a configurable, compact mea
 menu.h
 
 struct Menu {
-...
+    void (*function)(Menu *menu);
+    int entry_count;
+    MenuEntry entries[8];
 };
 
 typedef struct MenuEntry {
-...
+    Screen entry;
+    const char *entry_string;
 } MenuEntry;
 
 typedef enum {
-...
-}
+    MAIN_MENU = 0,
+    SENSOR_CONFIG,
+    SENSOR_CONFIG_ADC_EXT,
+    ...
+} Screen;
 ```
-## UI Screen Flow
 
+The Menu structure consists of the following fields:
+
+`void (*function)(Menu *menu)` – a pointer to a function that takes a pointer to the Menu structure as an argument.
+
+`int entry_count` – the number of available options in the menu.
+
+`MenuEntry entries[8]` – an array of available options; each option is a MenuEntry structure.
+
+The MenuEntry structure consists of the following fields:
+
+`Screen entry` – this field represents a specific view in the menu, of type Screen; values of this type are defined in an enumerated type (enum).
+
+`const char *entry_string` – a pointer to a character string, the actual name of the item displayed on the screen.
+
+An enumerated type (enum) named `Screen` has been created, containing a list of screens.
+
+## UI Screen Flow
+Menu navigation logic in the context of sensor configuration:
 ![UI screens](/imgs/Menu_options.jpg)
+
+Menu navigation logic in the context of microSD card configuration:
+![SD Configuration](/imgs/sd_config.png)
+
+Error message displayed in the SD card configuration menu when the card is not detected or there is a file system-related error:
+![SD Error](/imgs/sd_err.png)
+
+Menu for previewing values from the external analog-to-digital converter:
+![ADC Values real-time](/imgs/adc_values.png)
+
+Menu navigation logic in the context of enabling or disabling measurements:
+![ADC Values real-time](/imgs/change_state.png)
+
 
 ## Measurement Logic
 
 Interrupts are utilized to define the timing for sensor readings. Four channels are defined, each with a different sampling rate. Interrupts are generated using the microcontroller's built-in timer in Output Compare No Output mode (counting up to the value in the CCRx register). A callback function is invoked within the interrupt service routine (ISR).
 
-## Saving to microSD Card
+```c
+void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef *htim) {
+  uint32_t pulse;
+  if(htim->Channel == HAL_TIM_ACTIVE_CHANNEL_1) {
+    pulse = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_1);
+    ch1przerwanie=1;
+      __HAL_TIM_SET_COMPARE(htim, TIM_CHANNEL_1, (pulse + 50000));
+  }
+  ...
+}
+  ```
+
+## <br>Saving to microSD Card
 
 The FatFS file system library is used via the SPI interface, utilizing the "cubeide-sd-card" library by kiwih.
 
@@ -90,11 +138,27 @@ Data is written through a circular buffer (100 entries) and managed by the FatFS
 
 Each line in the file contains all recorded sensor data along with a timestamp from the Real-Time Clock (RTC).
 
-## Debugging
+```csv
+<NEW_MEASURE_BEGIN>
+timestamp,adc_ext_ch0,adc_ext_ch1,adc_ext_ch2,adc_ext_ch3,adc_int_ch0,adc_int_ch1,adc_int_ch2,adc_int_ch3,ds18b20_1,ds18b20_2,ds18b20_3
+01:01:14 06/12/23,3.287618,,0.902696,,0.500317,,,,,,
+01:01:14 06/12/23,3.287618,,0.901949,,0.500317,,,,,,
+01:01:14 06/12/23,3.287618,,0.902136,,0.499512,,,,,,
+01:01:14 06/12/23,3.287618,,0.903629,,0.498706,,,,,,
+```
 
-Debugging messages related to the SD card controller are implemented and output via the COM port (using a UART<->USB bridge).
+## <br>Debugging
 
-## Measurements / Testing
+Debugging messages related to the SD card controller are implemented and output via the COM port (using a UART<->USB bridge). 
+
+```
+sd status: SD ERR
+<DEVICE ERROR>
+sd status: FR_OK
+<DEVICE READY>
+```
+
+## <br>Measurements / Testing
 
 ###   ADC linearity measurements.
 * Voltage measurements compared against a reference standard show that the converter's response closely matches the ideal characteristic after linear fitting. This confirms good linearity across the full measurement range.
