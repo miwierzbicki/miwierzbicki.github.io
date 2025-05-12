@@ -4,9 +4,94 @@ import DefaultLayout from "../layouts/DefaultLayout.astro";
 ---
 
 <DefaultLayout>
-	<h1>🚧 Site under construction 🚧</h1>
-	<p>I'm working on something amazing. Come back to me later!</p>
-	<p>In the meantime, take a look at my <a href="/projects">projects</a>, <a href="https://github.com/miwierzbicki" target="_blank"
-		rel="noopener">GitHub</a> and <a href="https://www.linkedin.com/in/miros%C5%82aw-wierzbicki-67b87a230/" target="_blank"
-		rel="noopener">Linkedin</a>.</p>
+  <div class="terminal-hero">
+    <div class="terminal-bar">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green"></span>
+      <span class="terminal-title">miroslaw@portfolio:~</span>
+    </div>
+    <div class="terminal-body">
+      <pre>
+<span class="prompt">$</span> whoami
+<span class="output">Mirosław Wierzbicki</span>
+<span class="prompt">$</span> echo "🚧 Site under construction 🚧"
+<span class="output">🚧 Site under construction 🚧</span>
+<span class="prompt">$</span> # You can check out my <a href="/projects" class="terminal-link">projects</a>, <a href="https://github.com/miwierzbicki" target="_blank" rel="noopener" class="terminal-link">GitHub</a> or <a href="https://www.linkedin.com/in/miros%C5%82aw-wierzbicki-67b87a230/" target="_blank" rel="noopener" class="terminal-link">LinkedIn</a>
+      </pre>
+    </div>
+  </div>
 </DefaultLayout>
+
+<style>
+  .terminal-hero {
+    max-width: 700px;
+    margin: 4rem auto 2rem auto;
+    background: #23272e;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
+    font-family: var(--mono-font-stack, monospace);
+    color: #e8e9ed;
+    overflow: hidden;
+  }
+  .terminal-bar {
+    background: #181a1b;
+    padding: 0.5em 1em;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    border-bottom: 1px solid #222;
+  }
+  .terminal-bar .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 4px;
+  }
+  .terminal-bar .red {
+    background: #ff5f56;
+  }
+  .terminal-bar .yellow {
+    background: #ffbd2e;
+  }
+  .terminal-bar .green {
+    background: #27c93f;
+  }
+  .terminal-title {
+    margin-left: 1em;
+    font-weight: bold;
+    color: #a3abba;
+    font-size: 1em;
+  }
+  .terminal-body {
+    padding: 2em 1.5em 1.5em 1.5em;
+    font-size: 1.1em;
+  }
+  .prompt {
+    color: #62c4ff;
+    font-weight: bold;
+  }
+  .output {
+    color: #a3abba;
+    margin-left: 1em;
+    display: block;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .terminal-link {
+    color: #62c4ff;
+    text-decoration: underline;
+    transition: color 0.15s;
+  }
+  .terminal-link:hover {
+    color: #7fd6ff;
+  }
+  pre {
+    background: none;
+    border: none;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+  }
+</style>
