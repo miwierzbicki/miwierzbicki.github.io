@@ -9,7 +9,7 @@ import DefaultLayout from "../layouts/DefaultLayout.astro";
       <span class="dot red"></span>
       <span class="dot yellow"></span>
       <span class="dot green"></span>
-      <span class="terminal-title">miroslaw@portfolio:~</span>
+      <span class="terminal-title">Welcome to my website :)</span>
     </div>
     <div class="terminal-body">
       <pre>
@@ -24,7 +24,8 @@ import DefaultLayout from "../layouts/DefaultLayout.astro";
 </DefaultLayout>
 
 <style>
-  .terminal-hero {
+  /* Specific for index page */
+.terminal-hero {
     max-width: 700px;
     margin: 4rem auto 2rem auto;
     background: #23272e;
@@ -79,12 +80,12 @@ import DefaultLayout from "../layouts/DefaultLayout.astro";
     word-break: break-word;
   }
   .terminal-link {
-    color: #62c4ff;
+    color: var(--primary-color);
     text-decoration: underline;
-    transition: color 0.15s;
+    
   }
   .terminal-link:hover {
-    color: #7fd6ff;
+    color: var(--invert-font-color)
   }
   pre {
     background: none;

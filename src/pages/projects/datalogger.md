@@ -161,6 +161,8 @@ sd status: FR_OK
 ## <br>Measurements / Testing
 
 ###   ADC linearity measurements.
+
+Measurements of the ADC were made using a custom voltage stabilizer, Keysight EDU36311A power supply and a Keithley 2000 multimeter. Measurements were made in 100 mV increments (starting from 3.3 V down to 0 V).
 * Voltage measurements compared against a reference standard show that the converter's response closely matches the ideal characteristic after linear fitting. This confirms good linearity across the full measurement range.
 ![ADC linearity measurement](/imgs/ADC_measure.jpg)
 ###  Gain error measurement.
